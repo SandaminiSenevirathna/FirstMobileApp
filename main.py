@@ -22,7 +22,16 @@ class Calculator:
             self.buttons[i].grid(row=row, column=col)
             self.buttons[0].grid(row=4, column=1)
 
-            
+            # create buttons for operations
+            self.operations = [
+                tk.Button(master, text='+', width=5, height=2, command=lambda: self.append_to_display('+')),
+                tk.Button(master, text='-', width=5, height=2, command=lambda: self.append_to_display('-')),
+                tk.Button(master, text='*', width=5, height=2, command=lambda: self.append_to_display('*')),
+                tk.Button(master, text='/', width=5, height=2, command=lambda: self.append_to_display('/')),
+                tk.Button(master, text='C', width=5, height=2, command=lambda: self.clear_display()),
+                tk.Button(master, text='=', width=5, height=2, command=lambda: self.calculate())
+            ]
+
 
 
 
