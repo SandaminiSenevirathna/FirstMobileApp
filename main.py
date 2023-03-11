@@ -32,6 +32,27 @@ class Calculator:
                 tk.Button(master, text='=', width=5, height=2, command=lambda: self.calculate())
             ]
 
+            # place operation buttons on grid
+            for i, button in enumerate(self.operations):
+                button.grid(row=i + 1, column=3)
+
+        def append_to_display(self, value):
+            self.display.insert(tk.END, value)
+
+        def clear_display(self):
+            self.display.delete(0, tk.END)
+
+        def calculate(self):
+            expression = self.display.get()
+            try:
+                result = eval(expression)
+                self.display.delete(0, tk.END)
+                self.display.insert(tk.END, str(result))
+            except:
+                self.display.delete(0, tk.END)
+                self.display.insert(tk.END, "Error")
+
+
 
 
 
