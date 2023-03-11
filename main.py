@@ -15,6 +15,16 @@ class Calculator:
             for i in range(10)
         ]
 
+        # place number buttons on grid
+        for i in range(1, 10):
+            row = ((9 - i) // 3) + 1
+            col = ((i - 1) % 3)
+            self.buttons[i].grid(row=row, column=col)
+            self.buttons[0].grid(row=4, column=1)
+
+            
+
+
 
 
 
