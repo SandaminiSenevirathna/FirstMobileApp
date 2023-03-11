@@ -9,4 +9,12 @@ class Calculator:
         self.display = tk.Entry(master, width=25, font=('Arial', 16))
         self.display.grid(row=0, column=0, columnspan=4, pady=10)
 
+        # create buttons for numbers
+        self.buttons = [
+            tk.Button(master, text=str(i), width=5, height=2, command=lambda x=i: self.append_to_display(x))
+            for i in range(10)
+        ]
+
+
+
 
