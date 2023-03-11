@@ -164,6 +164,38 @@ class Calculator:
 
         self.create_button('=', 5, 0, columnspan=4)
 
+        # set up the clear button
+        self.clear_flag = False
+
+    def create_button(self, text, row, column, columnspan=1):
+        button = tk.Button(self.master, text=text, width=5, height=2, font=('Arial', 16),
+                           command=lambda: self.button_click(text))
+        button.grid(row=row, column=column, columnspan=columnspan, padx=5, pady=5)
+
+    def button_click(self, text):
+        if text == '=':
+            # evaluate the expression and display the result
+            try:
+                result = str(eval(self.display.get()))
+            except:
+                result = 'ERROR'
+            self.display.delete(0, tk.END)
+            self.display.insert(0, result)
+            self.clear_flag = True
+        elif text == 'C':
+            # clear the display
+            self.display.delete(0, tk.END)
+        else:
+            # add the button's text to the display
+            if self.clear_flag:
+                self.display.delete(0, tk.END)
+                self.clear_flag = False
+            self.display.insert(tk.END, text)
+
+root = tk.Tk()
+calculator = Calculator(root)
+root.mainloop()
+
 
 
 
