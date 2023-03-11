@@ -141,6 +141,30 @@ class Calculator:
         self.display = tk.Entry(master, width=20, justify='right', font=('Arial', 16))
         self.display.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
 
+        # create the buttons
+        self.create_button('7', 1, 0)
+        self.create_button('8', 1, 1)
+        self.create_button('9', 1, 2)
+        self.create_button('/', 1, 3)
+
+        self.create_button('4', 2, 0)
+        self.create_button('5', 2, 1)
+        self.create_button('6', 2, 2)
+        self.create_button('*', 2, 3)
+
+        self.create_button('1', 3, 0)
+        self.create_button('2', 3, 1)
+        self.create_button('3', 3, 2)
+        self.create_button('-', 3, 3)
+
+        self.create_button('0', 4, 0)
+        self.create_button('.', 4, 1)
+        self.create_button('C', 4, 2)
+        self.create_button('+', 4, 3)
+
+        self.create_button('=', 5, 0, columnspan=4)
+
+
 
 
 
